@@ -1,0 +1,29 @@
+version: '2'
+services:
+  eurekaserver1:
+    image: wucy.docker/eurekacluster:latest
+    hostname: eurekaserver1
+    ports:
+      - "8761:8761"
+    environment:
+      - spring.profiles.active=c1
+
+  eurekaserver2:
+    image: wucy.docker/eurekacluster:latest
+    hostname: eurekaserver2
+    ports:
+      - "8762:8762"
+    environment:
+      - spring.profiles.active=c2
+
+  eurekaserver3:
+    image: wucy.docker/eurekacluster:latest
+    hostname: eurekaserver3
+    ports:
+      - "8763:8763"
+    environment:
+      - spring.profiles.active=c3
+networks:
+  default:
+    external:
+      name: springcloud-demo

@@ -1,0 +1,21 @@
+version: '2'
+services:
+  microserviceProvider1:
+    image: wucy.docker/microservice-provider:latest
+    hostname: microserviceProvider1
+    ports:
+      - "8001:8001"
+  microserviceProvider2:
+    image: wucy.docker/microservice-provider:latest
+    hostname: microserviceProvider2
+    ports:
+      - "8002:8001"
+  microserviceProvider3:
+    image: wucy.docker/microservice-provider:latest
+    hostname: microserviceProvider3
+    ports:
+      - "8003:8001"
+networks:
+  default:
+    external:
+      name: springcloud-demo

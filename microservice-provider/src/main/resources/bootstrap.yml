@@ -1,0 +1,34 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: microservice-provider
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.94.148.30:3306/spring_cloud?useSSL=true&verifyServerCertificate=false
+    username: root
+    password: wcy123456
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eurekaserver1:8761/eureka/,http://eurekaserver2:8762/eureka/,http://eurekaserver3:8763/eureka/
+  instance:
+    hostname: microservice-provider
+    prefer-ip-address: true
+    secure-virtual-host-name: microservice-provider
+
+management:
+  security:
+    enabled: false
+
+jedis:
+  ip: 127.0.0.1
+  port: 6379
+  user: test
+  password: 22222222

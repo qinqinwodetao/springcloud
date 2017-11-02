@@ -1,0 +1,11 @@
+version: '2'
+services:
+  MicroserviceConfigServer:
+    image: wucy.docker/microservice-config-server:latest
+    hostname: microserviceconfigserver
+    ports:
+      - "8080:8080"
+networks:
+  default:
+    external:
+      name: springcloud-demo

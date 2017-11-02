@@ -1,0 +1,12 @@
+version: '2'
+services:
+  apigatewayzuul:
+    image: wucy.docker/api-gateway-zuul:latest
+    hostname: apigatewayzuul
+    ports:
+      - "2001:2001"
+
+networks:
+  default:
+    external:
+      name: springcloud-demo

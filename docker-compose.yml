@@ -1,0 +1,62 @@
+version: '2'
+services:
+#EURAKE
+  eurekaserver1:
+    image: wucy.docker/eurekacluster:latest
+    hostname: eurekaserver1
+    ports:
+      - "8761:8761"
+    environment:
+      - spring.profiles.active=c1
+
+  eurekaserver2:
+    image: wucy.docker/eurekacluster:latest
+    hostname: eurekaserver2
+    ports:
+      - "8762:8762"
+    environment:
+      - spring.profiles.active=c2
+
+  eurekaserver3:
+    image: wucy.docker/eurekacluster:latest
+    hostname: eurekaserver3
+    ports:
+      - "8763:8763"
+    environment:
+      - spring.profiles.active=c3
+#apigateway
+  apigatewayzuul:
+    image: wucy.docker/api-gateway-zuul:latest
+    hostname: apigatewayzuul
+    ports:
+      - "2001:2001"
+
+
+#feign
+  microserviceconsumerfeignhystrix1:
+    image: wucy.docker/microservice-consumer-feign-hystrix:latest
+    hostname: microserviceconsumerfeignhystrix1
+    ports:
+      - "7001:7001"
+
+#provider
+  microserviceProvider1:
+    image: wucy.docker/microservice-provider:latest
+    hostname: microserviceProvider1
+    ports:
+      - "8001:8001"
+  microserviceProvider2:
+    image: wucy.docker/microservice-provider:latest
+    hostname: microserviceProvider2
+    ports:
+      - "8002:8001"
+  microserviceProvider3:
+    image: wucy.docker/microservice-provider:latest
+    hostname: microserviceProvider3
+    ports:
+      - "8003:8001"
+
+networks:
+  default:
+    external:
+      name: springcloud-demo

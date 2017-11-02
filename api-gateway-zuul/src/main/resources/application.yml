@@ -1,0 +1,11 @@
+server:
+  port: 2001
+spring:
+  application:
+    name: api-gateway-zuul
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eurekaserver1:8761/eureka/,http://eurekaserver2:8762/eureka/,http://eurekaserver3:8763/eureka/
+
