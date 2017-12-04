@@ -10,7 +10,8 @@ spring:
 
 eureka:
   instance:
-    hostname: eurekaserver1
+    hostname:  ${spring.application.name}
+    preferIpAddress: true
   client:
     fetch-registry: true
     register-with-eureka: true

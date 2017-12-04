@@ -1,6 +1,18 @@
 server:
   port: 8081
 
+eureka:
+  instance:
+    hostname: ${spring.application.name}
+    preferIpAddress: true
+#      leaseRenewalIntervalInSeconds: 1 表示eureka client发送心跳给server端的频率
+#      leaseExpirationDurationInSeconds: 2  表示eureka server至上一次收到client的心跳之后，等待下一次心跳的超时时间，在这个时间内若没收到下一次心跳，则将移除该instance
+  client:
+    serviceUrl:
+      defaultZone: http://47.94.148.30:8761/eureka/
+    healthcheck:
+      enabled: true
+
 spring:
   application:
     name: microservice-config-server
@@ -11,24 +23,18 @@ spring:
       server:
         git:
           uri: https://github.com/qinqinwodetao/config-files.git
+    bus:
+      trace:
+        enabled: true
+  rabbitmq:
+    host: 47.94.148.30
+    port: 5672
+    username: root
+    password: 123456
 
 security:
   basic:
-    enabled: false
+    enabled: true
   user:
     name: root
     password: 123456
-
-eureka:
-    instance:
-      hostname: ${spring.application.name}
-      preferIpAddress: true
-      statusPageUrlPath: ${server.context-path}/info
-      healthCheckUrlPath: ${server.context-path}/health
-      leaseRenewalIntervalInSeconds: 1
-      leaseExpirationDurationInSeconds: 2
-    client:
-      serviceUrl:
-        defaultZone: http://47.94.148.30:8761/eureka/
-      healthcheck:
-        enabled: true

@@ -4,28 +4,7 @@ spring:
   application:
     name: microservice-provider
   profiles:
-    active: dev
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.94.148.30:3306/spring_cloud?useSSL=true&verifyServerCertificate=false
-    username: root
-    password: wcy123456
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-
-management:
-  security:
-    enabled: false
-
-jedis:
-  ip: 127.0.0.1
-  port: 6379
-  user: test
-  password: 22222222
-
-
+    active: prod
 
 ---
 #dev
@@ -34,3 +13,14 @@ spring:
   cloud:
     config:
       uri: http://127.0.0.1:8081/
+      username: root
+      password: 123456
+---
+#dev
+spring:
+  profiles: prod
+  cloud:
+    config:
+      uri: http://47.94.148.30:8081/
+      username: root
+      password: 123456
