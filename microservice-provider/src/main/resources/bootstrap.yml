@@ -6,6 +6,14 @@ spring:
   profiles:
     active: prod
 
+logging:
+  level:
+    root: info
+
+security:
+  basic:
+    enabled: false
+
 ---
 #dev
 spring:
