@@ -2,6 +2,8 @@ package com.wucy.provider.control;
 
 import com.wucy.provider.dao.JedisDao;
 import com.wucy.provider.entity.Jedis;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -18,6 +20,8 @@ import java.util.List;
 @RequestMapping(value = "/jedisApp")
 public class JedisAppControl {
 
+    private static final Logger log = LoggerFactory.getLogger(JedisAppControl.class);
+
     @Autowired
     private JedisDao jedisDao;
 
@@ -30,8 +34,11 @@ public class JedisAppControl {
 
     @GetMapping(value = "/jedisHello")
     public String jedisHello(){
+        String str = "jedisIp:" + jedisIp + "||" + "jedisPort：" + jedisPort;
 
-        return  "jedisIp:" + jedisIp + "||" + "jedisPort：" + jedisPort;
+        log.info(str);
+
+        return str;
 
     }
 
