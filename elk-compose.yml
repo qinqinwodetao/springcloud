@@ -1,7 +1,11 @@
+#ELK整合docker镜像
 elk:
-  image: sebp/elk:543
+  image: wucy/elk:latest
+  environment:
+        - TZ=Asia/Shanghai
   ports:
     - "5601:5601"
     - "9200:9200"
     - "9300:9300"
+    - "5000:5000"
     - "5044:5044"
