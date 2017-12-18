@@ -3,10 +3,7 @@ package com.wucy.provider.control;
 import com.wucy.provider.entity.User;
 import com.wucy.provider.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,7 +11,7 @@ import java.util.List;
  * Created by wucy on 2017/6/16.
  */
 @RestController
-@RequestMapping(value = "/user")
+@RequestMapping(value = "provider/user")
 public class UserControl {
 
     @Autowired
@@ -28,6 +25,13 @@ public class UserControl {
     @GetMapping(value = "/getAll")
     public List<User> getAll(){
         return userService.listAll();
+    }
+
+
+    @PutMapping(value = "/add")
+    public void add(@RequestBody User user){
+
+        userService.save(user);
     }
 
 }

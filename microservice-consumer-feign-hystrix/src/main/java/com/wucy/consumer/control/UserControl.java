@@ -30,6 +30,11 @@ public class UserControl {
         return userFeignClient.findUserById(id);
     }
 
+    @GetMapping(value = "/getAll")
+    public List<User> getAll(){
+        return userFeignClient.getAll();
+    }
+
 
     @GetMapping(value = "/hello")
     public String hello(){

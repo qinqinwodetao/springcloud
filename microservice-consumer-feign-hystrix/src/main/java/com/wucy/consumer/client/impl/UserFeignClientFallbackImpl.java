@@ -4,6 +4,8 @@ import com.wucy.consumer.output.User;
 import com.wucy.consumer.client.UserFeignClient;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 
 /**
  * @author wucy
@@ -18,5 +20,10 @@ public class UserFeignClientFallbackImpl implements UserFeignClient {
         user.setUserName("fallback");
         user.setPassword("88888888");
         return user;
+    }
+
+    @Override
+    public List<User> getAll() {
+        return null;
     }
 }

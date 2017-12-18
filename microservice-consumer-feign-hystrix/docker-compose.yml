@@ -5,7 +5,11 @@ services:
     hostname: microserviceconsumerfeignhystrix1
     ports:
       - "7001:7001"
-
+  microserviceconsumerfeignhystrix2:
+    image: wucy.docker/microservice-consumer-feign-hystrix:latest
+    hostname: microserviceconsumerfeignhystrix2
+    ports:
+      - "7002:7002"
 networks:
   default:
     external:

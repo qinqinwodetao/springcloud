@@ -26,9 +26,11 @@
     <modules>
         <module>eurekacluster</module>
         <module>microservice-config-server</module>
+        <module>microservice-consumer-ribbon</module>
         <module>microservice-consumer-feign-hystrix</module>
         <module>microservice-provider</module>
         <module>api-gateway-zuul</module>
+        <module>common</module>
     </modules>
 
     <dependencies>
@@ -54,6 +56,18 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>

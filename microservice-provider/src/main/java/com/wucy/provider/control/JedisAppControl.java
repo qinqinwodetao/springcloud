@@ -17,7 +17,7 @@ import java.util.List;
 
 @RestController
 @RefreshScope //从Git服务刷新配置
-@RequestMapping(value = "/jedisApp")
+@RequestMapping(value = "provider/jedisApp")
 public class JedisAppControl {
 
     private static final Logger log = LoggerFactory.getLogger(JedisAppControl.class);
