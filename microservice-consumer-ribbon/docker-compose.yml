@@ -1,0 +1,16 @@
+version: '2'
+services:
+  microserviceconsumerribbon1:
+    image: wucy.docker/microservice-consumer-ribbon:latest
+    hostname: microserviceconsumerribbon1
+    ports:
+      - "6001:6001"
+  microserviceconsumerribbon2:
+    image: wucy.docker/microservice-consumer-ribbon:latest
+    hostname: microserviceconsumerribbon2
+    ports:
+      - "6002:6002"
+networks:
+  default:
+    external:
+      name: springcloud-demo
